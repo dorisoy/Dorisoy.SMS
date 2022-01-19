@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SMS.Data\SMS.Data.csproj" />
+  </ItemGroup>
+
+</Project>

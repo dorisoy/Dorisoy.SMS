@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\GridViewPage.xaml" />
+    <None Remove="Pages\OverviewPage.xaml" />
+    <None Remove="Styles\SideBar.xaml" />
+    <None Remove="Styles\Styles.xaml" />
+    <None Remove="Styles\Themes\DarkTheme.xaml" />
+    <None Remove="Views\MainTabView.xaml" />
+    <None Remove="Views\NavigationControl.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Pages\GridViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Pages\OverviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Styles\SideBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Styles\Themes\DarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Views\NavigationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Include="Views\MainTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
+    <PackageReference Include="Material.Icons" Version="1.0.68" />
+    <PackageReference Include="Prism.Avalonia" Version="7.2.0.1430" />
+    <PackageReference Include="Prism.Unity.Avalonia" Version="7.2.0.1430" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMS.Common\SMS.Common.csproj" />
+    <ProjectReference Include="..\SMS.Modules.Calendar\SMS.Modules.Calendar.csproj" />
+    <ProjectReference Include="..\SMS.Modules.Contacts\SMS.Modules.Contacts.csproj" />
+    <ProjectReference Include="..\SMS.Modules.Mail\SMS.Modules.Mail.csproj" />
+    <ProjectReference Include="..\SMS.Modules.Message\SMS.Modules.Message.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <RestoreSources>$(RestoreSources);https://api.nuget.org/v3/index.json</RestoreSources>
+  </PropertyGroup>
+</Project>

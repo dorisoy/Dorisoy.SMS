@@ -1,0 +1,14 @@
+<prism:PrismApplication xmlns="https://github.com/avaloniaui"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:local="using:SMS"
+                        xmlns:prism="http://prismlibrary.com/"
+                        x:Class="SMS.App">
+  <prism:PrismApplication.Styles>
+    <FluentTheme Mode="Dark" />
+	  <StyleInclude Source="/Styles/Styles.xaml" />
+	  <StyleInclude Source="/Styles/SideBar.xaml" />
+	  <StyleInclude Source="/Styles/MaterialIcon.axaml" />
+	  <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+  </prism:PrismApplication.Styles>
+</prism:PrismApplication>
+

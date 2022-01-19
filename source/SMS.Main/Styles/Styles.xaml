@@ -1,0 +1,24 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="0">        
+        <TextBlock Text="PingFang" FontFamily="{StaticResource PingFangFamily}" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+  
+  <Styles.Resources>
+    <Thickness x:Key="PageMargin">40 0 40 0</Thickness>    
+    <!--<FontFamily x:Key="PingFangFamily">avares://SMS/Assets/Fonts/PingFang.ttc#PingFang</FontFamily>-->
+    <!--<FontFamily x:Key="PingFangFamily">/Assets/Fonts/Roboto-Black.ttf#Roboto-Black</FontFamily>-->
+    <FontFamily x:Key="PingFangFamily">avares://SMS/Assets/Fonts#Roboto</FontFamily>
+    
+
+    
+  </Styles.Resources>
+
+  <Style Selector="TextBlock.code">
+    <Setter Property="FontFamily" Value="{StaticResource PingFangFamily}" />
+  </Style>
+</Styles>

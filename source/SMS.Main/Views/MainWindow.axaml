@@ -1,0 +1,114 @@
+<FluentWindow xmlns="https://github.com/avaloniaui"
+			  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			  xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
+			  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			  xmlns:core="clr-namespace:SMS.Common;assembly=SMS.Common"
+			  xmlns:prism="http://prismlibrary.com/"
+			  mc:Ignorable="d"
+			  d:DesignWidth="1350"
+			  d:DesignHeight="700"
+			  Height="800"
+			  Width="1400"
+			  xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
+			  xmlns:local="clr-namespace:SMS.Views;assembly=SMS"
+			  x:Class="SMS.Views.MainWindow"
+			  Icon="{x:Null}"
+			  x:Name="MainWindow"
+			  prism:ViewModelLocator.AutoWireViewModel="True"
+			  WindowStartupLocation="CenterScreen"
+			  Background="{x:Null}"
+			  Title="SMS">
+	<FluentWindow.Styles>
+		<Style Selector="TitleBar:fullscreen">
+			<Setter Property="Background"
+					Value="#7f000000" />
+		</Style>
+	</FluentWindow.Styles>
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+
+	<Grid
+		ColumnDefinitions="64,*"
+		RowDefinitions="*">
+
+		<!--左侧导航栏-->
+		<local:NavigationControl
+			Grid.Column="0" />
+
+		<Carousel
+			Grid.Column="1"
+			SelectedIndex="0">
+
+			<!--主Tab页面-->
+			<local:MainTabView />
+
+		</Carousel>
+
+	</Grid>
+
+</FluentWindow>
+
+
+
+<!--<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:core="clr-namespace:SMS.Common;assembly=SMS.Common"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:vm="using:SMS.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        x:Class="SMS.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SMS">
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*" />
+      <ColumnDefinition Width="6*" />
+      <ColumnDefinition Width="1*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="0.5*" />
+      <RowDefinition Height="8*" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+      <DockPanel>
+        <Menu DockPanel.Dock="Top">
+          <MenuItem Header="_File">
+            <MenuItem Header="_Open..." />
+            <Separator />
+            <MenuItem Header="_Exit" />
+          </MenuItem>
+          <MenuItem Header="_Edit">
+            <MenuItem Header="Copy" />
+            <MenuItem Header="Paste" />
+          </MenuItem>
+        </Menu>
+      </DockPanel>
+    </Grid>
+
+    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftRegion}" Background="LightGray" />
+      <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Background="Gray" />
+      <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.RightRegion}" Background="LightGray" />
+    </Grid>
+
+    <StackPanel
+        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+        prism:RegionManager.RegionName="{x:Static core:RegionNames.FooterRegion}" Background="LightBlue">
+    </StackPanel>
+  </Grid>
+</Window>-->

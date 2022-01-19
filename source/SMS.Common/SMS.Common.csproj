@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.11" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
+    <PackageReference Include="Prism.Avalonia" Version="7.2.0.1430" />
+    <PackageReference Include="Prism.DryIoc.Avalonia" Version="7.2.0.1430" />
+  </ItemGroup>
+
+</Project>

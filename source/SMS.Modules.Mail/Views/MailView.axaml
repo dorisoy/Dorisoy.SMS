@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:SMS.Modules.Mail.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             x:Class="SMS.Modules.Mail.Views.MailView"
+             Background="Green"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+  <Grid>
+    <StackPanel>
+      <Button Content="Show Dashboard" Command="{Binding CommandShowDashboard}" />
+      <TextBox Text="{Binding Greeting}" />
+      <ListBox Items="{Binding MailMessages}"></ListBox>
+    </StackPanel>
+  </Grid>
+</UserControl>

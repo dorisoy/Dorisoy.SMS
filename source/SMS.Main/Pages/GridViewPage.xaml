@@ -1,0 +1,389 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:icon="clr-namespace:MyAvalonia;assembly=SMS"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="SMS.Pages.GridViewPage">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.header">
+      <Setter Property="Margin"
+              Value="0 30 0 20" />
+    </Style>
+  </UserControl.Styles>
+
+  <Grid Margin="0,20,0,0"
+        RowDefinitions="50,*,50"
+        ColumnDefinitions="*,*">
+
+    
+    <StackPanel Grid.Row="0"
+                Grid.Column="0"
+                Orientation="Horizontal">
+
+      <!--添加-->
+      <Button 
+                Command="{Binding TestCommand}"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              Margin="15,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="PlusCircle"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="添加"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+
+      <!--删除-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Remove"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="删除"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      
+      <!--清空全部-->
+      <Button 
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Delete"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="清空全部"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <!--打印-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Printer"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="打印"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <!--导入-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Import"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="导入"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <ComboBox HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Width="150"
+                PlaceholderText="导出文件"
+                Margin="0,0,15,0">
+        <ComboBoxItem>导出PDF</ComboBoxItem>
+        <ComboBoxItem>导出Csv</ComboBoxItem>
+        <ComboBoxItem>导出Excel</ComboBoxItem>
+        <ComboBoxItem>导出文本</ComboBoxItem>
+      </ComboBox>
+
+
+      <!--选择列-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="ArrowBottomLeft"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="选择列"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+    </StackPanel>
+
+    <StackPanel Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal" HorizontalAlignment="Right">
+
+      <TextBox  Watermark="搜索关键字..."
+                HorizontalAlignment="Left"
+                Width="250"
+                Height="35"
+                Margin="0,0,10,0"/>
+
+      <Button
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center"  
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Search"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="搜索"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+    </StackPanel>
+
+
+    <ScrollViewer  Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+    <DataGrid  Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Name="MyDataGrid"
+               Items="{Binding Items}"
+               AutoGenerateColumns="False" >
+      <DataGrid.Columns>
+        <DataGridCheckBoxColumn Header="✔"
+                                Binding="{Binding IsChecked}"/>
+        <DataGridTextColumn Header="编号"
+                            Binding="{Binding Id}" />
+        <DataGridTextColumn Header="姓名"
+                            Binding="{Binding Name}" />
+        <DataGridTextColumn Header="电话"
+                            Binding="{Binding Phone}" />
+        <DataGridTextColumn Header="姓名"
+                            Binding="{Binding Name}" />
+        <DataGridTextColumn Header="电话"
+                            Binding="{Binding Phone}" />
+        <DataGridTextColumn Header="姓名"
+                            Binding="{Binding Name}" />
+        <DataGridTextColumn Header="电话"
+                            Binding="{Binding Phone}" />
+        <DataGridTextColumn Header="姓名"
+                            Binding="{Binding Name}" />
+        <DataGridTextColumn Header="电话"
+                            Binding="{Binding Phone}" />
+      </DataGrid.Columns>
+    </DataGrid>
+    </ScrollViewer>
+
+    <StackPanel Grid.Row="2"
+                Grid.Column="0"
+                Orientation="Horizontal">
+
+      <!--添加-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="15,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="PlusCircle"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="添加"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+
+      <!--删除-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Remove"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="删除"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+
+      <!--清空全部-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Delete"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="清空全部"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <!--打印-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Printer"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="打印"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <!--导入-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Import"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="导入"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+      <ComboBox HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Width="150"
+                PlaceholderText="导出文件"
+                Margin="0,0,15,0">
+        <ComboBoxItem>导出PDF</ComboBoxItem>
+        <ComboBoxItem>导出Csv</ComboBoxItem>
+        <ComboBoxItem>导出Excel</ComboBoxItem>
+        <ComboBoxItem>导出文本</ComboBoxItem>
+      </ComboBox>
+
+
+      <!--选择列-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="ArrowBottomLeft"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="选择列"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+    </StackPanel>
+    <StackPanel Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+
+      <TextBox  Watermark="搜索关键字..."
+                HorizontalAlignment="Left"
+                Width="250"
+                Height="35"
+                Margin="0,0,10,0"/>
+
+      <Button
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center"
+        Margin="0,0,15,0">
+        <Grid>
+          <icon:MaterialIcon
+            Kind="Search"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="18"
+            Height="18" />
+          <TextBlock Margin="20,0,0,0"
+                     Text="搜索"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Right" />
+        </Grid>
+      </Button>
+
+    </StackPanel>
+    
+  </Grid>
+
+</UserControl>

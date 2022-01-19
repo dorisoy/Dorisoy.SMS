@@ -1,0 +1,76 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1350"
+             d:DesignHeight="700"
+             xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
+             x:Class="SMS.Views.MainTabView"
+             FontSize="18"
+             FontFamily="{StaticResource PingFangFamily}"
+             Foreground="{StaticResource SystemBaseHighColor}">
+
+  <Panel>
+    <DockPanel HorizontalAlignment="Stretch">
+      <ExperimentalAcrylicBorder DockPanel.Dock="Left"
+                                 Width="240">
+        <ExperimentalAcrylicBorder.Material>
+          <ExperimentalAcrylicMaterial TintColor="Black"
+                                       MaterialOpacity="0.85"
+                                       TintOpacity="1" />
+        </ExperimentalAcrylicBorder.Material>
+        <AutoCompleteBox HorizontalAlignment="Stretch"
+                         Margin="20 20 20 0"
+                         Watermark="搜索"
+                         Items="{Binding SearchItems}" />
+      </ExperimentalAcrylicBorder>
+      <ExperimentalAcrylicBorder IsHitTestVisible="False">
+        <ExperimentalAcrylicBorder.Material>
+          <ExperimentalAcrylicMaterial TintColor="#222222"
+                                       MaterialOpacity="0.85"
+                                       TintOpacity="1" />
+        </ExperimentalAcrylicBorder.Material>
+        <TextBlock Text="{Binding #TabControl.SelectedItem.Header}"
+                   Margin="20 20"
+                   FontSize="20"
+                   FontWeight="Light" />
+      </ExperimentalAcrylicBorder>
+    </DockPanel>
+
+    <TabControl x:Name="TabControl"
+                Classes="sidebar"
+                Margin="0 20 0 0">
+      <TabItem Header="首页">
+        <pages:GridViewPage />
+      </TabItem>
+      <TabItem Header="班级管理">
+        <pages:GridViewPage />
+      </TabItem>
+      <TabItem Header="课程管理">
+        <pages:GridViewPage />
+      </TabItem>
+      <TabItem Header="学生管理">
+        <pages:OverviewPage />
+      </TabItem>
+      <TabItem Header="家长管理">
+        <pages:OverviewPage />
+      </TabItem>
+    </TabControl>
+  </Panel>
+
+  
+  
+  <UserControl.Styles>
+    <Style Selector="TabControl.sidebar > TabItem">
+      <Setter Property="FontSize"
+              Value="16" />
+      <Setter Property="FontWeight"
+              Value="Normal" />
+      <Setter Property="FontFamily"
+              Value="{StaticResource PingFangFamily}" />
+    </Style>
+  </UserControl.Styles>
+
+</UserControl>

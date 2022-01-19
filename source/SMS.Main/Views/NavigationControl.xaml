@@ -1,0 +1,438 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:icon="clr-namespace:MyAvalonia;assembly=SMS"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
+             x:Class="SMS.Views.NavigationControl"
+             FontSize="14"
+             Foreground="{StaticResource SystemBaseHighColor}">
+  <Grid
+    ColumnDefinitions="64"
+    RowDefinitions="48,*,48"
+    Classes="NavigationContainer"
+    Background="#1b2333">
+
+    <Button
+      Classes="Profile"
+      Grid.Row="0">
+      <Panel>
+        <Ellipse />
+        <icon:MaterialIcon
+          Kind="AccountCircle"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center"
+          Width="25"
+          Height="25" />
+      </Panel>
+    </Button>
+
+    
+    <TabStrip
+      Grid.Row="1"
+      SelectedIndex="0"
+      BorderBrush="Transparent"
+      BorderThickness="0"
+      Padding="0"  >
+      <TabStrip.ItemsPanel>
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Vertical"
+                      Margin="0"
+                      Spacing="0">
+          </StackPanel>
+        </ItemsPanelTemplate>
+      </TabStrip.ItemsPanel>
+   
+      <!--管理-->
+      <TabStripItem
+        Classes="NavigationTab">
+        <Border Margin="0"
+                Padding="0">
+          <Panel>
+            <Ellipse />
+            <!--<Image Source="resm:SMS.Icons.Light.Home20.png?assembly=SMS" />-->
+            <icon:MaterialIcon
+              Kind="CardAccountDetails"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--教学-->
+      <TabStripItem
+        Classes="NavigationTab">
+        <Border>
+          <Panel>
+            <Ellipse />
+
+            <icon:MaterialIcon
+              Kind="AccountStar"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--收入-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="CashRegister"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--费用-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+
+            <icon:MaterialIcon
+              Kind="CashRefund"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--人力-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="AccountSwitch"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--课程表-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="Timetable"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--出勤率-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="Timer"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--记录-->
+      <TabStripItem
+        Classes="NavigationTab">
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="ClipboardTextClock"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+
+      <!--活动-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="CalendarClock"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+      
+      <!--接送-->
+      <TabStripItem
+        Classes="NavigationTab"
+                >
+        <Border>
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="CarClock"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+      
+    </TabStrip>
+
+
+    <Button
+      Classes="Settings"
+      Grid.Row="2">
+      <Panel>
+        <Ellipse />
+        <icon:MaterialIcon
+          Kind="Cog"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center"
+          Width="20"
+          Height="20" />
+      </Panel>
+    </Button>
+
+  </Grid>
+
+  <UserControl.Styles>
+
+    <Style Selector="TabStrip">
+      <Setter Property="Margin"
+              Value="0,15,0,0" />
+      <Setter Property="Width"
+              Value="64" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab">
+      <Setter Property="Margin"
+              Value="0" />
+      <Setter Property="Height"
+              Value="64" />
+      <Setter Property="Width"
+              Value="64" />
+    </Style>
+
+    <!--TabStripItem /template/ Border#PART_SelectedPipe, TabItem[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe-->
+
+    <Style Selector="TabStripItem.NavigationTab">
+      <Setter Property="Margin"
+              Value="0" />
+      <Setter Property="Padding"
+              Value="0"/>
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab /template/ Border#PART_SelectedPipe, TabItem[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
+      <Setter Property="Height"
+              Value="0" />
+      <Setter Property="Margin"
+              Value="0,0,0,0" />
+    </Style>
+
+
+    <Style Selector="TabStripItem.NavigationTab > Border">
+      <Setter Property="Width"
+              Value="64" />
+      <Setter Property="Height"
+              Value="48" />
+      <Setter Property="BorderThickness"
+              Value="2,0,0,0" />
+      <Setter Property="BorderBrush"
+              Value="Transparent" />
+    </Style>
+
+
+    <Style Selector="TabStripItem.NavigationTab:pressed">
+      <Setter Property="Background"
+              Value="#000" />
+      <Setter Property="Padding"
+              Value="0" />
+      <Setter Property="Margin"
+              Value="0" />
+      <Setter Property="BorderThickness"
+              Value="0" />
+      <Setter Property="BorderBrush"
+              Value="Transparent" />
+    </Style>
+
+
+    <Style Selector="TabStripItem.NavigationTab:selected">
+      <Setter Property="Background"
+              Value="#000" />
+      <Setter Property="Padding"
+              Value="0" />
+      <Setter Property="Margin"
+              Value="0" />
+      <Setter Property="BorderThickness"
+              Value="0" />
+      <Setter Property="BorderBrush"
+              Value="Transparent" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab:selected > Border">
+      <Setter Property="BorderBrush"
+              Value="#17a1e6" />
+      <Setter Property="BorderThickness"
+              Value="2,0,0,0" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab Image">
+      <Setter Property="Width"
+              Value="14" />
+      <Setter Property="Height"
+              Value="14" />
+      <Setter Property="Opacity"
+              Value="0.5" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab Ellipse">
+      <Setter Property="Width"
+              Value="30" />
+      <Setter Property="Height"
+              Value="30" />
+      <Setter Property="Fill"
+              Value="#435270" />
+      <Setter Property="Opacity"
+              Value="0.33" />
+      <Setter Property="Margin"
+              Value="0,0,0,0" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab:selected Image">
+      <Setter Property="Opacity"
+              Value="0.8" />
+    </Style>
+
+    <Style Selector="TabStripItem.NavigationTab:selected Ellipse">
+      <Setter Property="Opacity"
+              Value="1.0" />
+    </Style>
+
+    <!--头像-->
+
+    <Style Selector="Button.Profile">
+      <Setter Property="Background"
+              Value="Transparent" />
+      <Setter Property="Width"
+              Value="64" />
+      <Setter Property="Height"
+              Value="64" />
+      <Setter Property="BorderThickness"
+              Value="0,0,0,0" />
+      <Setter Property="BorderBrush"
+              Value="Transparent" />
+      <Setter Property="CornerRadius"
+              Value="0" />
+    </Style>
+
+    <!--<Style Selector="Button.Profile Image">
+      <Setter Property="Width"
+              Value="30" />
+      <Setter Property="Height"
+              Value="30" />
+    </Style>-->
+
+    <Style Selector="Button.Profile:pressed">
+      <Setter Property="Background"
+              Value="Transparent" />
+      <Setter Property="BorderThickness"
+              Value="0" />
+    </Style>
+
+    <!--设置-->
+    <Style Selector="Button.Settings">
+      <Setter Property="Width"
+              Value="64" />
+      <Setter Property="Background"
+              Value="Transparent" />
+      <Setter Property="HorizontalAlignment"
+              Value="Center" />
+      <Setter Property="VerticalAlignment"
+              Value="Center" />
+      <Setter Property="HorizontalContentAlignment"
+              Value="Center"/>
+      <Setter Property="VerticalContentAlignment"
+              Value="Center"/>
+      <Setter Property="BorderThickness"
+              Value="0" />
+      <Setter Property="BorderBrush"
+              Value="Transparent" />
+      <!--<Setter Property="Width"
+              Value="30" />
+      <Setter Property="Height"
+              Value="30" />
+      <Setter Property="CornerRadius"
+              Value="50" />-->
+    </Style>
+
+    <Style Selector="Button.Settings:pressed">
+      <Setter Property="Background"
+              Value="#435270" />
+      <Setter Property="BorderThickness"
+              Value="0" />
+    </Style>
+
+    <Style Selector="Button.Settings Image">
+      <Setter Property="Width"
+              Value="14" />
+      <Setter Property="Height"
+              Value="14" />
+      <Setter Property="Opacity"
+              Value="0.5" />
+    </Style>
+
+    <Style Selector="Button.Settings Ellipse">
+      <Setter Property="Width"
+              Value="30" />
+      <Setter Property="Height"
+              Value="30" />
+      <Setter Property="Fill"
+              Value="#fff" />
+      <Setter Property="Opacity"
+              Value="0.33" />
+    </Style>
+
+  </UserControl.Styles>
+
+
+</UserControl>
