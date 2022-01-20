@@ -3,10 +3,12 @@
              xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:prism="http://prismlibrary.com/"
              xmlns:icon="clr-namespace:MyAvalonia;assembly=SMS"
              mc:Ignorable="d"
              xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
-             x:Class="SMS.Views.NavigationControl"
+             x:Class="SMS.Views.NavigationView"
+              prism:ViewModelLocator.AutoWireViewModel="True"
              FontSize="14"
              Foreground="{StaticResource SystemBaseHighColor}">
   <Grid
@@ -17,6 +19,7 @@
 
     <Button
       Classes="Profile"
+      Command="{Binding CommandShow}"
       Grid.Row="0">
       <Panel>
         <Ellipse />

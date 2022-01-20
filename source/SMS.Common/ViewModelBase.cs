@@ -1,11 +1,16 @@
 ﻿using Prism.Mvvm;
 using Prism.Regions;
 
+using MediatR;
+using System.Threading.Tasks;
+using SMS.MediatR.Queries;
+
 namespace SMS.Common
 {
   public class ViewModelBase : BindableBase, INavigationAware
   {
     private string _title;
+    protected readonly IMediator _mediator;
 
     public string Title
     {
@@ -13,27 +18,21 @@ namespace SMS.Common
       set => SetProperty(ref _title, value);
     }
 
-    /// <summary>
-    ///   Handles Prism's request to navigate to.
-    ///   Don't call this directly, use OnNavigatingTo
-    ///   to comply with Prism v8.x
-    /// </summary>
-    /// <param name="navigationContext">Navigation Context.</param>
-    /// <returns>Return True to allow navigation, False to deny it.</returns>
+    public ViewModelBase(IMediator mediator)
+    {
+      _mediator = mediator;
+    }
+
+
     public bool IsNavigationTarget(NavigationContext navigationContext)
     {
-      // Auto-allow navigation
       return OnNavigatingTo(navigationContext);
     }
 
-    /// <summary>Perform any (event) cleanup, we're navigating away.</summary>
-    /// <param name="navigationContext">Navigation parameters.</param>
     public virtual void OnNavigatedFrom(NavigationContext navigationContext)
     {
     }
 
-    /// <summary>Navigated to view.</summary>
-    /// <param name="navigationContext">Navigation parameters.</param>
     public virtual void OnNavigatedTo(NavigationContext navigationContext)
     {
     }

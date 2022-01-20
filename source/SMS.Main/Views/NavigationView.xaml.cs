@@ -4,9 +4,9 @@ using SMS.ViewModels;
 
 namespace SMS.Views
 {
-    public class NavigationControl : UserControl
+    public class NavigationView : UserControl
     {
-        public NavigationControl()
+        public NavigationView()
         {
             InitializeComponent();
         }

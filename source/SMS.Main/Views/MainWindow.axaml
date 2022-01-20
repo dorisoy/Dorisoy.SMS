@@ -26,9 +26,9 @@
 		</Style>
 	</FluentWindow.Styles>
 
-	<Design.DataContext>
+	<!--<Design.DataContext>
 		<vm:MainWindowViewModel/>
-	</Design.DataContext>
+	</Design.DataContext>-->
 
 
 	<Grid
@@ -36,7 +36,7 @@
 		RowDefinitions="*">
 
 		<!--左侧导航栏-->
-		<local:NavigationControl
+		<local:NavigationView
 			Grid.Column="0" />
 
 		<Carousel

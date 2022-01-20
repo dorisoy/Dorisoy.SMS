@@ -3,11 +3,13 @@
              xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d"
              d:DesignWidth="1350"
              d:DesignHeight="700"
              xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
              x:Class="SMS.Views.MainTabView"
+              prism:ViewModelLocator.AutoWireViewModel="True"
              FontSize="18"
              FontFamily="{StaticResource PingFangFamily}"
              Foreground="{StaticResource SystemBaseHighColor}">

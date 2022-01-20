@@ -7,18 +7,16 @@ using Prism.Commands;
 
 namespace SMS.ViewModels
 {
-  public class MainWindowViewModel : ViewModelBase
+  public class MainTabViewModel : ViewModelBase
   {
-    public DelegateCommand CommandShow => new DelegateCommand(() => {
+    public DelegateCommand CommandShowDashboard => new DelegateCommand(() => {
 
       System.Diagnostics.Debug.Print("CommandShowDashboard");
 
     });
 
-    public MainWindowViewModel(IMediator mediator) : base(mediator)
+    public MainTabViewModel(IMediator mediator) : base(mediator)
     {
-
- 
     }
 
     public string Greeting => "Welcome to Avalonia!";

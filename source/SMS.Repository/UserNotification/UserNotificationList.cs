@@ -30,20 +30,20 @@ namespace SMS.Repository
             AddRange(items);
         }
 
-        public async Task<UserNotificationList> Create(IQueryable<UserNotification> source, int skip, int pageSize)
+        public async Task<UserNotificationList> CreateAsync(IQueryable<UserNotification> source, int skip, int pageSize)
         {
-            var count = await GetCount(source);
-            var dtoList = await GetDtos(source, skip, pageSize);
+            var count = await GetCountAsync(source);
+            var dtoList = await GetDtosAsync(source, skip, pageSize);
             var dtoPageList = new UserNotificationList(dtoList, count, skip, pageSize);
             return dtoPageList;
         }
 
-        public async Task<int> GetCount(IQueryable<UserNotification> source)
+        public async Task<int> GetCountAsync(IQueryable<UserNotification> source)
         {
             return await source.AsNoTracking().CountAsync();
         }
 
-        public async Task<List<UserNotificationDto>> GetDtos(IQueryable<UserNotification> source, int skip, int pageSize)
+        public async Task<List<UserNotificationDto>> GetDtosAsync(IQueryable<UserNotification> source, int skip, int pageSize)
         {
             var entities = await source
                 .Skip(skip)

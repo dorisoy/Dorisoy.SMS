@@ -7,8 +7,15 @@
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.11" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
     <PackageReference Include="Prism.Avalonia" Version="7.2.0.1430" />
-    <PackageReference Include="Prism.DryIoc.Avalonia" Version="7.2.0.1430" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SMS.Data\SMS.Data.csproj" />
+    <ProjectReference Include="..\SMS.Infrastructure\SMS.Infrastructure.csproj" />
+    <ProjectReference Include="..\SMS.MediatR\SMS.MediatR.csproj" />
+    <ProjectReference Include="..\SMS.Repository\SMS.Repository.csproj" />
   </ItemGroup>
 
 </Project>

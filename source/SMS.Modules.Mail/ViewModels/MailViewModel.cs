@@ -4,6 +4,7 @@ using Prism.Regions;
 using SMS.Common;
 using SMS.Modules.Mail.Models;
 using SMS.Modules.Mail.Services;
+using MediatR;
 
 namespace SMS.Modules.Mail.ViewModels
 {
@@ -12,7 +13,7 @@ namespace SMS.Modules.Mail.ViewModels
     private IMailService _mailService;
     private IRegionManager _regionManager;
 
-    public MailViewModel(IMailService mailService, IRegionManager regionManager)
+    public MailViewModel(IMediator mediator, IMailService mailService, IRegionManager regionManager) : base(mediator)
     {
       _regionManager = regionManager;
       _mailService = mailService;
