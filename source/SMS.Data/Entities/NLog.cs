@@ -4,12 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMS.Data
 {
-    /// <summary>
-    /// 用于表示系统日志
-    /// </summary>
-    public class NLog
-    {
-        public Guid Id { get; set; }
+  /// <summary>
+  /// 用于表示系统日志
+  /// </summary>
+   public class NLog : BaseEntity
+  {
         public string MachineName { get; set; }
 
         [Column(TypeName = "datetime")]

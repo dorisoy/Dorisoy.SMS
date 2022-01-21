@@ -48,6 +48,10 @@
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
     <PackageReference Include="Material.Icons" Version="1.0.68" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Prism.Avalonia" Version="7.2.0.1430" />
     <PackageReference Include="Prism.Unity.Avalonia" Version="7.2.0.1430" />
   </ItemGroup>

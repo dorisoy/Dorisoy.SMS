@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
              x:Class="SMS.Views.NavigationView"
-              prism:ViewModelLocator.AutoWireViewModel="True"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              FontSize="14"
              Foreground="{StaticResource SystemBaseHighColor}">
   <Grid
@@ -35,10 +35,12 @@
     
     <TabStrip
       Grid.Row="1"
-      SelectedIndex="0"
+      Classes="MYTabStrip"
+      SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}"
+      SelectionChanged="TabStrip_SelectionChanged"
       BorderBrush="Transparent"
       BorderThickness="0"
-      Padding="0"  >
+      Padding="0">
       <TabStrip.ItemsPanel>
         <ItemsPanelTemplate>
           <StackPanel Orientation="Vertical"
@@ -47,7 +49,24 @@
           </StackPanel>
         </ItemsPanelTemplate>
       </TabStrip.ItemsPanel>
-   
+
+      <!--仪表板-->
+      <TabStripItem
+        Classes="NavigationTab">
+        <Border Margin="0"
+                Padding="0">
+          <Panel>
+            <Ellipse />
+            <icon:MaterialIcon
+              Kind="DesktopMacDashboard"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="20"
+              Height="20" />
+          </Panel>
+        </Border>
+      </TabStripItem>
+      
       <!--管理-->
       <TabStripItem
         Classes="NavigationTab">
@@ -55,7 +74,6 @@
                 Padding="0">
           <Panel>
             <Ellipse />
-            <!--<Image Source="resm:SMS.Icons.Light.Home20.png?assembly=SMS" />-->
             <icon:MaterialIcon
               Kind="CardAccountDetails"
               VerticalAlignment="Center"
@@ -72,7 +90,6 @@
         <Border>
           <Panel>
             <Ellipse />
-
             <icon:MaterialIcon
               Kind="AccountStar"
               VerticalAlignment="Center"
@@ -85,8 +102,7 @@
 
       <!--收入-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
@@ -102,12 +118,10 @@
 
       <!--费用-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
-
             <icon:MaterialIcon
               Kind="CashRefund"
               VerticalAlignment="Center"
@@ -120,8 +134,7 @@
 
       <!--人力-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
@@ -137,8 +150,7 @@
 
       <!--课程表-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
@@ -154,8 +166,7 @@
 
       <!--出勤率-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
@@ -187,8 +198,7 @@
 
       <!--活动-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />
@@ -204,8 +214,7 @@
       
       <!--接送-->
       <TabStripItem
-        Classes="NavigationTab"
-                >
+        Classes="NavigationTab">
         <Border>
           <Panel>
             <Ellipse />

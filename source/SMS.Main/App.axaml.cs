@@ -7,7 +7,7 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using FluentValidation;
 using MediatR;
-using Microsoft.Extensions.Configuration;
+//using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Prism.Ioc;
@@ -46,7 +46,7 @@ namespace SMS
       base.Initialize();
     }
 
-   
+
     protected override void OnInitialized()
     {
       // 将视图注册到它将出现的区域,不要在ViewModel中注册它们。
@@ -54,13 +54,43 @@ namespace SMS
       regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(DashboardView));
 
 
+      //Test
       var userInfoToken = Container.Resolve<UserInfoToken>();
       userInfoToken.Id = Guid.Parse("4b352b37-332a-40c6-ab05-e38fcf109719");
       userInfoToken.Email = "czhcom@163.com";
 
 
+      //using (var context = new SMSContext())
+      //{
+      //  context.Database.EnsureCreated();
+
+      //  context.UserAccount.Add(new UserAccount {
+      //    UserID = 0,
+      //    RoleID = 0,
+      //    StaffID = 0,
+      //    StudentID = 0,
+      //    EmailAddress = "czhcom@163.com",
+      //    UserName = "admin",
+      //    Password = "123456",
+      //    AccountStatus = "",
+      //    CreatedDate = DateTime.Now,
+      //    CreatedBy = Guid.NewGuid(),
+      //    ModifiedDate = DateTime.Now,
+      //    ModifiedBy = Guid.NewGuid(),
+      //    DeletedDate = DateTime.Now,
+      //    DeletedBy = Guid.NewGuid(),
+      //    IsDeleted = false
+      //  });
+
+      //  context.SaveChanges();
+      //}
+
     }
 
+    protected override IAvaloniaObject CreateShell()
+    {
+      return this.Container.Resolve<MainWindow>();
+    }
 
 
     protected override void RegisterTypes(IContainerRegistry crg)
@@ -69,29 +99,22 @@ namespace SMS
 
       // Services
       var services = new ServiceCollection();
-
-      services.AddLogging(logging => logging.AddConsole()).BuildServiceProvider();
-
+      services.AddLogging(logging => logging.AddConsole());
+      using (var provider = services.BuildServiceProvider())
+      {
+        //var app = provider.GetService<Avalonia.Application>();
+        //var builder = AppBuilder.Configure(app);
+      };
+     
 
       //注册MediatR
       var assembly = AppDomain.CurrentDomain.Load("SMS.MediatR");
       container.RegisterMediator(new HierarchicalLifetimeManager());
       container.RegisterMediatorHandlers(assembly);
       container.RegisterType(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>), "ValidationBehavior");
-      //container.RegisterType(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>), "RequestPreProcessorBehavior");
-      //container.RegisterType(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>), "RequestPostProcessorBehavior");
-      //container.RegisterType(typeof(IPipelineBehavior<,>), typeof(GenericPipelineBehavior<,>), "GenericPipelineBehavior");
-      //container.RegisterType(typeof(IRequestPreProcessor<>), typeof(GenericRequestPreProcessor<>), "GenericRequestPreProcessor");
-      //container.RegisterType(typeof(IRequestPostProcessor<,>), typeof(GenericRequestPostProcessor<,>), "GenericRequestPostProcessor");
 
 
       crg.RegisterSingleton<UserInfoToken>();
-
-
-      //读取配置
-      var configuration = new ConfigurationBuilder()
-          .AddJsonFile("appsettings.json")
-          .Build();
 
 
       //注册AutoMapper
@@ -121,11 +144,15 @@ namespace SMS
       crg.RegisterForNavigation<MainTabView, MainTabViewModel>();
       crg.RegisterForNavigation<DashboardView, DashboardViewModel>();
       crg.RegisterForNavigation<SettingsView, SettingsViewModel>();
-      crg.RegisterForNavigation<NavigationView, NavigationViewModel>();
+      //crg.RegisterForNavigation<NavigationView, NavigationViewModel>();
 
     }
 
 
+    /// <summary>
+    /// 配置模块
+    /// </summary>
+    /// <param name="moduleCatalog"></param>
     protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
     {
       base.ConfigureModuleCatalog(moduleCatalog);
@@ -137,6 +164,11 @@ namespace SMS
       moduleCatalog.AddModule<SampleFooterModule>();
     }
 
+
+    /// <summary>
+    /// AdapterMapping
+    /// </summary>
+    /// <param name="regionAdapterMappings"></param>
     protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
     {
       base.ConfigureRegionAdapterMappings(regionAdapterMappings);
@@ -144,15 +176,12 @@ namespace SMS
       regionAdapterMappings.RegisterMapping(typeof(Grid), Container.Resolve<GridRegionAdapter>());
     }
 
-    protected override IAvaloniaObject CreateShell()
-    {
-      return this.Container.Resolve<MainWindow>();
-    }
-
-
   }
 
 
+  /// <summary>
+  /// Container 扩展
+  /// </summary>
   public static class ContainerExtensions
   {
     public static bool IsMediatorHandler(this Type arg)
@@ -184,18 +213,6 @@ namespace SMS
                       : null;
           });
 
-
-      /*
-       Unity.ResolutionFailedException:“Resolution failed with error: No public constructor is
-      available for type Microsoft.EntityFrameworkCore.DbContextOptions.
-      For more detailed information run Unity in debug mode: new UnityContainer(ModeFlags.Diagnostic)”
-
-
-      Unity.ResolutionFailedException:“Resolution failed with error: No public constructor is
-      available for type Microsoft.Extensions.Logging.ILogger`1[SMS.Data.UnitOfWork`1[SMS.Data.SMSContext]].
-
-
-       */
     }
 
     /// <summary>
@@ -231,7 +248,7 @@ namespace SMS
     }
 
     /// <summary>
-    ///     Register all implementations of a given type for provided assembly.
+    /// 为提供的程序集注册给定类型的所有实现
     /// </summary>
     public static IUnityContainer RegisterTypesImplementingType(this IUnityContainer container, Assembly assembly, Type type)
     {
@@ -246,7 +263,7 @@ namespace SMS
     }
 
     /// <summary>
-    ///     Register all implementations of a given type for provided assembly.
+    /// 为提供的程序集注册给定类型的所有实现.
     /// </summary>
     public static IUnityContainer RegisterNamedTypesImplementingType(this IUnityContainer container, Assembly assembly, Type type)
     {
@@ -260,6 +277,12 @@ namespace SMS
       return container;
     }
 
+    /// <summary>
+    /// 是否泛型子类
+    /// </summary>
+    /// <param name="generic"></param>
+    /// <param name="toCheck"></param>
+    /// <returns></returns>
     private static bool IsSubclassOfRawGeneric(Type generic, Type toCheck)
     {
       while (toCheck != null && toCheck != typeof(object))

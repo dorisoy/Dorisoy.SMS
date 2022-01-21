@@ -44,16 +44,13 @@
     <TabControl x:Name="TabControl"
                 Classes="sidebar"
                 Margin="0 20 0 0">
-      <TabItem Header="首页">
-        <pages:GridViewPage />
-      </TabItem>
-      <TabItem Header="班级管理">
+      <TabItem Header="学生管理">
         <pages:GridViewPage />
       </TabItem>
       <TabItem Header="课程管理">
         <pages:GridViewPage />
       </TabItem>
-      <TabItem Header="学生管理">
+      <TabItem Header="班级管理">
         <pages:OverviewPage />
       </TabItem>
       <TabItem Header="家长管理">

@@ -13,12 +13,9 @@ namespace SMS.Data
     /// <summary>
     /// 用于表示系统日志
     /// </summary>
-    public class UserNotification
-    {
-        public Guid Id { get; set; }
-
-        [Column(TypeName = "datetime")]
-        public DateTime CreatedDate { get; set; }
+    public class UserNotification : BaseEntity
+  {
+       
         public Guid ToUserId { get; set; } 
         public Guid FromUserId { get; set; }
         public bool IsRead { get; set; } = false;

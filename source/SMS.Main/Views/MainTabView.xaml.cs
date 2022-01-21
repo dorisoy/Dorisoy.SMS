@@ -1,11 +1,12 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using SMS.Common;
 using SMS.ViewModels;
 
 namespace SMS.Views
 {
-    public class MainTabView : UserControl
-    {
+    public class MainTabView : BaseControl<MainTabViewModel>
+  {
         public MainTabView()
         {
             InitializeComponent();

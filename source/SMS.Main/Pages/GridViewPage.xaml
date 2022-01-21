@@ -134,20 +134,20 @@
       </ComboBox>
 
 
-      <!--选择列-->
+      <!--Refresh-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
         Margin="0,0,15,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="ArrowBottomLeft"
+            Kind="Refresh"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="选择列"
+                     Text="刷新"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
@@ -202,19 +202,19 @@
                             Binding="{Binding Id}" />
         <DataGridTextColumn Header="姓名"
                             Binding="{Binding Name}" />
-        <DataGridTextColumn Header="电话"
+        <DataGridTextColumn Header="学号"
                             Binding="{Binding Phone}" />
-        <DataGridTextColumn Header="姓名"
+        <DataGridTextColumn Header="班主任"
                             Binding="{Binding Name}" />
-        <DataGridTextColumn Header="电话"
+        <DataGridTextColumn Header="年级"
                             Binding="{Binding Phone}" />
-        <DataGridTextColumn Header="姓名"
+        <DataGridTextColumn Header="班级"
                             Binding="{Binding Name}" />
-        <DataGridTextColumn Header="电话"
+        <DataGridTextColumn Header="监护人"
                             Binding="{Binding Phone}" />
-        <DataGridTextColumn Header="姓名"
+        <DataGridTextColumn Header="联系电话"
                             Binding="{Binding Name}" />
-        <DataGridTextColumn Header="电话"
+        <DataGridTextColumn Header="家庭地址"
                             Binding="{Binding Phone}" />
       </DataGrid.Columns>
     </DataGrid>
@@ -224,98 +224,163 @@
                 Grid.Column="0"
                 Orientation="Horizontal">
 
-      <!--添加-->
+      <!--首页-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Margin="15,0,15,0">
+        Margin="15,0,5,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="PlusCircle"
+            Kind="ChevronDoubleLeft"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="添加"
+                     Text="首页"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
       </Button>
 
 
-      <!--删除-->
+      <!--上一页-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Margin="0,0,15,0">
+        Margin="0,0,5,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="Remove"
+            Kind="ChevronLeft"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="删除"
+                     Text="上一页"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
       </Button>
 
-
-      <!--清空全部-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Margin="0,0,15,0">
+        Margin="0,0,5,0">
+        <Grid>
+          <TextBlock Margin="0,0,0,0"
+                     Text="1"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center" />
+        </Grid>
+      </Button>
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,5,0">
+        <Grid>
+          <TextBlock Margin="0,0,0,0"
+                     Text="2"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center" />
+        </Grid>
+      </Button>
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Background="Black"
+        Margin="0,0,5,0">
+        <Grid>
+          <TextBlock Margin="0,0,0,0"
+                     Text="3"
+                     Foreground="White"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center" />
+        </Grid>
+      </Button>
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,5,0">
+        <Grid>
+          <TextBlock Margin="0,0,0,0"
+                     Text="4"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center" />
+        </Grid>
+      </Button>
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,5,0">
+        <Grid>
+          <TextBlock Margin="0,0,0,0"
+                     Text="5"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center" />
+        </Grid>
+      </Button>
+      
+      <!--下一页-->
+      <Button
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="0,0,5,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="Delete"
+            Kind="ChevronRight"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="清空全部"
+                     Text="下一页"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
       </Button>
 
-      <!--打印-->
+      <!--尾页-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Margin="0,0,15,0">
+        Margin="0,0,5,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="Printer"
+            Kind="ChevronDoubleRight"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="打印"
+                     Text="尾页"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
       </Button>
 
-      <!--导入-->
+     
+
+    </StackPanel>
+    <StackPanel Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+
+      <!--刷新-->
       <Button
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
         Margin="0,0,15,0">
         <Grid>
           <icon:MaterialIcon
-            Kind="Import"
+            Kind="Refresh"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Width="18"
             Height="18" />
           <TextBlock Margin="20,0,0,0"
-                     Text="导入"
+                     Text="刷新"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right" />
         </Grid>
@@ -331,8 +396,7 @@
         <ComboBoxItem>导出Excel</ComboBoxItem>
         <ComboBoxItem>导出文本</ComboBoxItem>
       </ComboBox>
-
-
+      
       <!--选择列-->
       <Button
         HorizontalAlignment="Left"
@@ -351,36 +415,7 @@
                      HorizontalAlignment="Right" />
         </Grid>
       </Button>
-
-    </StackPanel>
-    <StackPanel Grid.Row="2"
-                Grid.Column="1"
-                Orientation="Horizontal"
-                HorizontalAlignment="Right">
-
-      <TextBox  Watermark="搜索关键字..."
-                HorizontalAlignment="Left"
-                Width="250"
-                Height="35"
-                Margin="0,0,10,0"/>
-
-      <Button
-        HorizontalAlignment="Right"
-        VerticalAlignment="Center"
-        Margin="0,0,15,0">
-        <Grid>
-          <icon:MaterialIcon
-            Kind="Search"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"
-            Width="18"
-            Height="18" />
-          <TextBlock Margin="20,0,0,0"
-                     Text="搜索"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Right" />
-        </Grid>
-      </Button>
+      
 
     </StackPanel>
     

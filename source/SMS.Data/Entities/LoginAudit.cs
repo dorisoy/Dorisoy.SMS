@@ -7,9 +7,8 @@ namespace SMS.Data
     /// <summary>
     /// 用于表示用户登录审计
     /// </summary>
-    public class LoginAudit
-    {
-        public Guid Id { get; set; }
+    public class LoginAudit : BaseEntity
+  {
         public string UserName { get; set; }
 
         [Column(TypeName = "datetime")]

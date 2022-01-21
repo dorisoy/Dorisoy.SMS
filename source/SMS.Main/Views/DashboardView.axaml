@@ -1,15 +1,37 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:prism="http://prismlibrary.com/"
-             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="350"
-             x:Class="SMS.Views.DashboardView"
-             prism:ViewModelLocator.AutoWireViewModel="True">
-  <DockPanel>
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-      <TextBlock Text="{Binding Title}" />
-      <TextBlock Text="Time to add some sample controls!" />
-    </StackPanel>
-  </DockPanel>
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="clr-namespace:SMS.ViewModels;assembly=SMS"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:prism="http://prismlibrary.com/"
+			 mc:Ignorable="d"
+			 d:DesignWidth="1350"
+			 d:DesignHeight="700"
+			 xmlns:pages="clr-namespace:SMS.Pages;assembly=SMS"
+			 x:Class="SMS.Views.DashboardView"
+			 prism:ViewModelLocator.AutoWireViewModel="True"
+			 FontSize="18"
+			 FontFamily="{StaticResource PingFangFamily}"
+			 Foreground="{StaticResource SystemBaseHighColor}">
+
+	<DockPanel>
+		<StackPanel VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+			<TextBlock Text="{Binding Title}" />
+			<TextBlock Text="Time to add some sample controls!" />
+		</StackPanel>
+	</DockPanel>
+
+
+	<UserControl.Styles>
+		<Style Selector="TabControl.sidebar > TabItem">
+			<Setter Property="FontSize"
+					Value="16" />
+			<Setter Property="FontWeight"
+					Value="Normal" />
+			<Setter Property="FontFamily"
+					Value="{StaticResource PingFangFamily}" />
+		</Style>
+	</UserControl.Styles>
+
 </UserControl>
