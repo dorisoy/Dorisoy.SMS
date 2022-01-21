@@ -264,4 +264,4 @@
    
 ## 屏幕截图
   
-  待补充...
+  <img src="https://github.com/dorisoy/Dorisoy.SMS/blob/master/s.png">
